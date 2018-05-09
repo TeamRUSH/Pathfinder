@@ -5,6 +5,14 @@ motion profiles and trajectories.
 ## Using the Library
 Full examples are provided under `examples/`
 
+## Compiling to Web-Assembly
+1. [Install emscripten by following the instructions here](http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html). When this project was created a Linux VM was used.
+2. Once you have installed `emcc`, run this under Pathfinder-Core:
+```
+emcc -o out/pathfinder.js src/*.c src/**/*.c -s WASM=1 -s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall"]' -Iinclude
+```
+`out/pathfinder.js` can be replaced with wherever you would like your `.js` and `.wasm` files to be written.
+
 ### Includes
 ```c
 #include <pathfinder.h>
